@@ -53,7 +53,7 @@ function checkcollision(zombieEl) {
     const mushRect = mushimg.getBoundingClientRect();
     const zRect = zombieEl.getBoundingClientRect();
 
-    const offset = 15; // فاصله امن تا برخورد واقعی
+    const offset = 40; // فاصله امن تا برخورد واقعی
 
     return (
         zRect.right - offset > mushRect.left + offset &&
