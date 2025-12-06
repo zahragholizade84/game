@@ -15,7 +15,7 @@ document.addEventListener("keydown", (e)=>{
 })
 //ارایه نگه دارنده زامبی 
 const zombies =[];
-const speed= 5;
+
 //ساخت تابع زامبی
 function createZombie() {
     const zombie = document.createElement("div");
@@ -36,14 +36,14 @@ function createZombie() {
     };
 }
 //اضافه شذن زامبی هر چند ثانیه
-
-function spawnxombia() {
+let speed= 5;
+function spawnzombia() {
     zombies.push(createZombie());
 }
 setInterval(()=> {
-    spawnxombia();
-    seed++;
-},3000);
+    spawnzombia();
+    speed++;
+},8000);
 
 
 // ===========================
@@ -63,3 +63,26 @@ function checkcollision(zombieEl) {
     );
 }
 //پایان بازی
+function gameOver(){
+    clearInterval(gameloop);
+    alert("done")
+    location.reload()
+}
+//حلقه بازی اصلی
+let gameloop =setInterval(
+    () =>{
+        zombies.forEach(z =>{
+            z.frame++;
+            if (z.frame>10) z.frame =1;
+            z.img.src =`walk/go_${z.frame}.png`
+            z.pos +=speed;
+            z.el.style.transform =`
+            translateX(${z.pos}px)`;
+        if (z.pos > window.innerWidth) z.pos = -150;
+
+        // چک برخورد
+        if (checkcollision(z.el) && !mush.classList.contains("jump")) {
+            gameOver();}
+        });
+    },50
+);

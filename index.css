@@ -1,5 +1,6 @@
 body{
     background-color: rgb(48, 91, 171);
+    overflow-x: hidden;
 }
 .game{
     position: relative;
@@ -44,14 +45,13 @@ filter:drop-shadow(0 18px 12px
 }
 .zombia {
     position: absolute;
+    margin
     left: 0;
-  
-    margin-top: 400px;
     height: 300px;
 }
-#zum{
-    width: 170px;
-    height: 180px;
+.zum{
+    width: 100px;
+   height: 100px;
 }
 .btn{
     background-color: rgb(109, 129, 189);
