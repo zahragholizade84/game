@@ -1,8 +1,7 @@
 const btnjump = document.querySelector(".btn");
 const mush =document.querySelector(".mush");
 const mushimg =document.querySelector(".img-mush");
-const zum = document.getElementById("zum");
-const zombia = document.querySelector(".zombia");
+
 btnjump.addEventListener("click", ()=>{
     mush.classList.remove("jump");
     void mush.offsetWidth;
@@ -14,20 +13,6 @@ document.addEventListener("keydown", (e)=>{
     void mush.offsetWidth;
     mush.classList.add("jump")
 })
-function checkcollision(){
-   
-    const mushRect =
-    mushimg.getBoundingClientRect();
-    const  zumRect =  
-   zum.getBoundingClientRect();
-   const offest = 30;//مقدار دلخواه
-    return (
-        zumRect.right - offest > mushRect.left + offest &&
-        zumRect.left + offest < mushRect.right - offest &&
-        zumRect.bottom - offest > mushRect.top + offest &&
-        zumRect.top + offest<  mushRect.bottom - offest
-    ) ;
-}
 
 function gameOver(){
     clearInterval(gameLoop);
