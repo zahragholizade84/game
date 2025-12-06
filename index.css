@@ -1,6 +1,6 @@
 body{
     background-color: rgb(48, 91, 171);
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .game{
     position: relative;
