@@ -56,21 +56,3 @@ mush.classList.contains("jump")){
 
 
 
-let frame2 = 1;
-let pos2 = 1;
-
-let gameLoop2 =
-setInterval(()=>{
- frame2 ++;
- if(frame2>10) frame2=1;
- zum.src =
- `walk2/go_${frame2}.png`;
- pos2 += 5;
- zombia.style.transform = `translate(${pos2}px)`;
- if(pos>window.innerWidth) pos2 =-150;
-
- if (checkcollision() && ! 
-mush.classList.contains("jump")){
-    gameOver();
-}
-},50)
