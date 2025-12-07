@@ -1,6 +1,6 @@
 body{
     background-color: rgb(48, 91, 171);
-    overflow: hidden;
+  overflow: hidden;
 }
 .game{
     position: relative;
@@ -12,14 +12,15 @@ body{
      position: absolute;
      right: 0;
      margin-right: 200px;
-     margin-top: 300px;
+     margin-top: 350px;
      height: 300px;
+     
      
     
 }
 .img-mush{
-    width: 300px;
-height: 310px;
+    width: 150px;
+height: 200px;
 filter:drop-shadow(0 18px 12px    
        rgba(0,0,0,0.28));
      -webkit-filter:drop-shadow(0 18px 12px 
@@ -28,10 +29,10 @@ filter:drop-shadow(0 18px 12px
           will-change: transform;
 
 }
-.mush.jump .img-mush{
-     animation:jump-up 6000ms          cubic-bezier(0.2,0.8,0.2,1) ;
+.mush.jump  .img-mush{
+     animation:jump-up 4000ms          cubic-bezier(0.2,0.8,0.2,1) ;
      filter: drop-shadow(0 5px 6px      rgba(0,0,0,0.18));
-     -webkit-animation:jump-up 6000ms          cubic-bezier(0.2,0.8,0.2,1) ;
+     -webkit-animation:jump-up 4000ms          cubic-bezier(0.2,0.8,0.2,1) ;
 }
 @keyframes jump-up {
     0%{ transform:translateY(0) scale(1) ;  }

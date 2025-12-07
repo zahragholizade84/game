@@ -1,18 +1,52 @@
 const btnjump = document.querySelector(".btn");
 const mush =document.querySelector(".mush");
 const mushimg =document.querySelector(".img-mush");
+//اضافه کردن امتیاز
+let score = 0;
+const scorecontainer =document.createElement("div");
+scorecontainer.classList.add("score");
+document.body.prepend(scorecontainer);
+function upditescor(){
+    scorecontainer.textContent= `score:${score}`;
+}
+upditescor();
+const audio = document.getElementById("myAudio");
+
+function playAudio() {
+  audio.play();
+}
+
+function pauseAudio() {
+  audio.pause();
+}
+
+function stopAudio() {
+  audio.pause();
+  audio.currentTime = 0; // بازگرداندن به ابتدای آهنگ
+}
 //پرش قارچ
-btnjump.addEventListener("click", ()=>{
+
+let isJumping = false; // وضعیت پرش
+
+btnjump.addEventListener("click", () => {
+    if(!isJumping){
+        mush.classList.add("jump");
+        isJumping = true;
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if(e.code !== "Space") return;
+    if(!isJumping){
+        mush.classList.add("jump");
+        isJumping = true;
+    }
+});
+
+mush.addEventListener("animationend", () => {
     mush.classList.remove("jump");
-    void mush.offsetWidth;
-    mush.classList.add("jump")
-})
-document.addEventListener("keydown", (e)=>{
-    if (e.code !== "Space") return
-    mush.classList.remove("jump");
-    void mush.offsetWidth;
-    mush.classList.add("jump")
-})
+    isJumping = false;
+});
 //ارایه نگه دارنده زامبی 
 const zombies =[];
 
@@ -50,14 +84,14 @@ setInterval(()=> {
 // چک برخورد دقیق
 // ===========================
 function checkcollision(zombieEl) {
-    const mushRect = mushimg.getBoundingClientRect();
+    const mushRect = mush.getBoundingClientRect();
     const zRect = zombieEl.getBoundingClientRect();
 
-    const offset = 40; // فاصله امن تا برخورد واقعی
+    const offset = 20; // فاصله امن تا برخورد واقعی
 
     return (
         zRect.right - offset > mushRect.left + offset &&
-        zRect.left + offset < mushRect.right - offset &&
+        zRect.left + offset< mushRect.right - offset &&
         zRect.bottom - offset > mushRect.top + offset &&
         zRect.top + offset < mushRect.bottom - offset
     );
@@ -78,8 +112,11 @@ let gameloop =setInterval(
             z.pos +=speed;
             z.el.style.transform =`
             translateX(${z.pos}px)`;
-        if (z.pos > window.innerWidth) z.pos = -150;
-
+        if (z.pos > window.innerWidth){
+            score++ ;
+            upditescor();
+             z.pos = -150;
+        }
         // چک برخورد
         if (checkcollision(z.el) && !mush.classList.contains("jump")) {
             gameOver();}
