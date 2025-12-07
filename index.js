@@ -99,8 +99,11 @@ function checkcollision(zombieEl) {
 //پایان بازی
 function gameOver(){
     clearInterval(gameloop);
-    alert("done")
-    location.reload()
+    const sound3 =document.querySelector(".suondgameover");
+    sound3.play();
+    alert("done");
+    location.reload();
+
 }
 //حلقه بازی اصلی
 let gameloop =setInterval(
