@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+   
     <div class="game">
         <div class="mush"   >
             <img src="mushroom.png" class="img-mush">
@@ -17,14 +18,21 @@
         <audio id="myAudio" src="zombia.mp3" loop></audio>
 
 <!-- دکمه‌ها -->
-<button onclick="playAudio()"> <img src="sound/icons8-sound-50.png">
+<button onclick="playAudio()" class="b-play"> <img src="sound/icons8-sound-50.png" class="imgplay" alt="playAudio">
     </button>
-<button onclick="pauseAudio()"> <img src="sound/icons8-sound-50 (1).png" alt="pauseAudio">
+<button onclick="pauseAudio()" class="b-pause"> <img src="sound/icons8-sound-50 (1).png"  class="imgpause"  alt="pauseAudio">
     </button>
+    <div id="game-over">
 
+        <img src="girl.png" alt="done">
+        <p>Oh</p>
+            <p> you lost you idiot.</p>
+        <button id="restart">start</button>
+       </div>
     </div>
     <audio src="gameover.mp3" class="suondgameover"></audio>
-    
+
+
     <script src="index.js"></script>
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mushroom Game Login</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body, html { 
+        height: 100%; 
+        background-image: url(cartoon-zombies2.jpg);
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        direction: ltr;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        background-size: cover;
+      
+
+    }
+
+    .login-container {
+        background: rgba(255,255,255,0.95); 
+        padding: 40px; 
+        border-radius: 20px; 
+        text-align: center; 
+        width: 320px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+    }
+
+    .login-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .login-container h1 { 
+        margin-bottom: 25px; 
+        color: #333; 
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .login-container input {
+        width: 100%; 
+        padding: 12px; 
+        margin: 12px 0; 
+        border-radius: 12px; 
+        border: 1px solid #ccc; 
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .login-container input:focus {
+        outline: none;
+        border-color: #3abeff;
+        box-shadow: 0 0 8px rgba(58,190,255,0.5);
+    }
+
+    .login-container button {
+        width: 100%; 
+        padding: 14px; 
+        background: #3abeff; 
+        color: white; 
+        border: none; 
+        border-radius: 12px; 
+        font-size: 16px; 
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s ease;
+        box-shadow: 0 6px 14px rgba(0,160,255,0.35);
+    }
+
+    .login-container button:hover { 
+        background: #57c9ff;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 10px 26px rgba(0,160,255,0.35);
+    }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <h1>Mushroom Game</h1>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="startGame()">Start Game</button>
+</div>
+
+<script>
+function startGame() {
+    const username = document.getElementById("username").value.trim();
+    if(!username) {
+        alert("Please enter your name!");
+        return;
+    }
+
+    // Save player name for the game
+    localStorage.setItem("playerName", username);
+
+    // Navigate to main game page
+    window.location.href = "index.html"; // change if your game file name is different
+}
+</script>
+
+</body>
+</html>

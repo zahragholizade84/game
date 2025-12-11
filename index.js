@@ -14,6 +14,7 @@ const audio = document.getElementById("myAudio");
 
 function playAudio() {
   audio.play();
+  
 }
 
 function pauseAudio() {
@@ -99,11 +100,17 @@ function checkcollision(zombieEl) {
 //پایان بازی
 function gameOver(){
     clearInterval(gameloop);
-    const sound3 =document.querySelector(".suondgameover");
+    const sound3 = document.querySelector(".suondgameover");
     sound3.play();
-    alert("done");
-    location.reload();
 
+    const gameOverDiv = document.getElementById("game-over");
+    gameOverDiv.classList.add("show");
+
+    // دکمه ریست
+    const restartBtn = document.getElementById("restart-btn");
+    restartBtn.addEventListener("click", () => {
+        location.reload(); // یا می‌تونی یک تابع resetGame بسازی
+    });
 }
 //حلقه بازی اصلی
 let gameloop =setInterval(

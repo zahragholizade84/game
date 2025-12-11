@@ -1,6 +1,11 @@
 body{
-    background-color: rgb(48, 91, 171);
+  background-image: url(backg.jpg);
+  background-repeat: no-repeat;
   overflow: hidden;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-size: cover;
 }
 .game{
     position: relative;
@@ -11,16 +16,16 @@ body{
 .mush{
      position: absolute;
      right: 0;
-     margin-right: 200px;
-     margin-top: 350px;
+    margin-right: 100px;
+     margin-top: 440px;
      height: 300px;
      
      
     
 }
 .img-mush{
-    width: 150px;
-height: 200px;
+    width: 120px;
+height: 130px;
 filter:drop-shadow(0 18px 12px    
        rgba(0,0,0,0.28));
      -webkit-filter:drop-shadow(0 18px 12px 
@@ -55,9 +60,8 @@ filter:drop-shadow(0 18px 12px
    height: 100px;
 }
 .btn{
-    background-color: rgb(109, 129, 189);
-    color: rgb(248, 14, 14);
-    border: 6px solid rgb(247, 2, 2);
+    background-color:#3abeff;
+    color:#fff;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -68,5 +72,134 @@ filter:drop-shadow(0 18px 12px
     width: 70px;
     height: 50px;
     margin-top: 650px;
-    margin-left: 650px;
+    margin-left: 700px;
+    backdrop-filter: blur(4px);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 160, 255,0.35);
+    transition: 0.18s ease;
+    -webkit-transition: 0.18s ease;
+    -moz-transition: 0.18s ease;
+    -ms-transition: 0.18s ease;
+    -o-transition: 0.18s ease;
+}
+.btn:hover{
+    background-color: #57c9ff;
+    transform: translateY(-3px) scale(1.04);
+    -webkit-transform: translateY(-3px) scale(1.04);
+    -moz-transform: translateY(-3px) scale(1.04);
+    -ms-transform: translateY(-3px) scale(1.04);
+    -o-transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 10px 26px rgba(0, 160, 255, 0.35);
+}
+.btn:active{
+    transform: translateY(-1px) scale(0.98);
+    -webkit-transform: translateY(-1px) scale(0.98);
+    -moz-transform: translateY(-1px) scale(0.98);
+    -ms-transform: translateY(-1px) scale(0.98);
+    -o-transform: translateY(-1px) scale(0.98);
+}
+.b-play{
+    position: fixed;
+    margin-left: 600px;
+    width: 30px;
+    height: 30px;
+
+}
+.imgplay{
+    width: 22px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+
+}
+.b-pause{
+    position: fixed;
+    margin-left: 640px;
+    width: 30px;
+    height: 30px;
+}
+.imgpause{
+    width: 22px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+}
+/* پیام پایان بازی */
+#game-over {
+    display: none; /* ابتدا مخفی */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1000;
+
+    /* انیمیشن نمایش نرم */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#game-over.show {
+    display: block;
+    opacity: 1;
+}
+
+#game-over img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+#game-over p {
+    font-size: 24px;
+    margin-top: 10px;
+}
+#restart{
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3abeff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#restart:hover {
+    background-color: #57c9ff;
+    transform: scale(1.05);
+}
+.score {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    z-index: 1000;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* انیمیشن کوچک وقتی امتیاز تغییر می‌کنه */
+.score.update {
+    transform: translateX(-50%) scale(1.2);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.score.update-remove {
+    transform: translateX(-50%) scale(1);
+    background: rgba(0, 0, 0, 0.5);
 }
